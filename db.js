@@ -9,7 +9,8 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
     console.log('connected');
-    const Excercise = new mongoose.Schema({
+    const Exercise = new mongoose.Schema({
+        userId: { type: mongoose.Schema.Types.ObjectId, required: true },
         date: Date,
         description: String,
         duration: Number
@@ -17,8 +18,10 @@ db.once('open', () => {
 
     const User = new mongoose.Schema({
         username: String,
-        excercises: [Excercise]
+        exercises: [Exercise]
     });
 
-    exports.User = mongoose.model('exercise_users', User);;;
-});
+    exports.User = mongoose.model('exercise_users', User)
+    
+    });
+  
