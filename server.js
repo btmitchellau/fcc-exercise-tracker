@@ -109,8 +109,7 @@ app.get('/api/exercise/log', (req, res) => {
                 filteredExercises = filteredExercises.filter((exercise) => {
                     return exercise.date.getTime() > new Date(req.query.from).getTime();
                 });
-            };
-            yeah
+            };            
 
             if (req.query.from !== undefined) {
                 filteredExercises = filteredExercises.filter((exercise) => {
